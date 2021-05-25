@@ -21,13 +21,12 @@ export const countrySlice = createSlice({
 export const fetchCountry = (countryId) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://restcountries.eu/rest/v2/name/${countryId}`
+      `https://restcountries.eu/rest/v2/name/${countryId}?fullText=true`
     );
     const data = await res.data;
     dispatch(countrySave(data));
   } catch (err) {
     dispatch(noCountry());
-    console.log(err.response.status);
   }
 };
 export const { countrySave, noCountry } = countrySlice.actions;

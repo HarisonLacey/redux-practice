@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCountry } from "./countrySlice";
 
@@ -10,13 +10,14 @@ export default function CountryDisplay() {
     <section style={{ margin: "0 auto", width: "40%" }}>
       {country.findCountry ? (
         <div>
+          <p>Name: {country.countries[0].name}</p>
           <p>Capital: {country.countries[0].capital}</p>
           <p>Flag:</p>{" "}
           <img style={{ height: "100px" }} src={country.countries[0].flag} />
-          <p>Native Name: {country.countries[0].nativeName}</p>
+          <p>Region: {country.countries[0].region}</p>
         </div>
       ) : (
-        <div>Country does not exist.</div>
+        <div style={{ height: "200px" }}>Country does not exist.</div>
       )}
       <form
         onSubmit={(e) => {
