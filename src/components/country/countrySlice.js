@@ -4,7 +4,7 @@ import axios from "axios";
 export const countrySlice = createSlice({
   name: "country",
   initialState: {
-    countries: [{ name: "" }],
+    countries: [{ name: null }],
     findCountry: true,
   },
   reducers: {
